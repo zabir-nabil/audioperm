@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>audioperm package &mdash; Audioperm 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Audioperm
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">audioperm package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-audioperm.audioperm">audioperm.audioperm module</a></li>
+<li><a class="reference internal" href="#module-audioperm.utils">audioperm.utils module</a></li>
+<li><a class="reference internal" href="#module-audioperm">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Audioperm</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>audioperm package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/audioperm.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="audioperm-package">
+<h1>audioperm package<a class="headerlink" href="#audioperm-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-audioperm.audioperm">
+<span id="audioperm-audioperm-module"></span><h2>audioperm.audioperm module<a class="headerlink" href="#module-audioperm.audioperm" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="audioperm.audioperm.AudioPerm">
+<em class="property">class </em><code class="sig-prename descclassname">audioperm.audioperm.</code><code class="sig-name descname">AudioPerm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span></em>, <em class="sig-param"><span class="n">sr</span><span class="o">=</span><span class="default_value">22050</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#audioperm.audioperm.AudioPerm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The main class for audioperm. Takes an audio file (or a batch of files) path or numpy array (int16, float). Internal audio representation is pcm 16 (not same as librosa default).</p>
+<dl class="py method">
+<dt id="audioperm.audioperm.AudioPerm.permute">
+<code class="sig-name descname">permute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_permutations</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">interm_silence</span><span class="o">=</span><span class="default_value">1000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#audioperm.audioperm.AudioPerm.permute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the permutation of words.
+TODO: Use yield.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_permutations</strong> (<em>int</em>) – Number of (max) permutations to return</p></li>
+<li><p><strong>interm_silence</strong> (<em>int</em>) – Intermediate silence between words (in ms).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Union[<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="audioperm.audioperm.AudioPerm.word_segments">
+<code class="sig-name descname">word_segments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">silence_thresh</span><span class="o">=</span><span class="default_value">- 60.0</span></em>, <em class="sig-param"><span class="n">min_silence_len</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">return_words</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#audioperm.audioperm.AudioPerm.word_segments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Segments the audio files into multiple segments or words.
+TODO: Improve word segmentation. Add label wise segmentation (If given n words as labels, find n appropriate words).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>silence_thresh</strong> (<em>float</em>) – Silence threshold for segmenting the audio. Same as pydub.</p></li>
+<li><p><strong>min_silence_len</strong> (<em>int</em>) – Minimum silence lenth (in ms). Same as pydub.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Union[<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-audioperm.utils">
+<span id="audioperm-utils-module"></span><h2>audioperm.utils module<a class="headerlink" href="#module-audioperm.utils" title="Permalink to this headline">¶</a></h2>
+<p>Helper functions for audioperm.</p>
+<dl class="py function">
+<dt id="audioperm.utils.max_min_heuristics">
+<code class="sig-prename descclassname">audioperm.utils.</code><code class="sig-name descname">max_min_heuristics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sig</span></em>, <em class="sig-param"><span class="n">max_perc</span><span class="o">=</span><span class="default_value">0.2</span></em>, <em class="sig-param"><span class="n">min_perc</span><span class="o">=</span><span class="default_value">0.2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#audioperm.utils.max_min_heuristics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the avg max and avg min considering a percentage of sorted amplitudes.
+For audio signals finding a single peak or valley is not enough. So, we take the average of top perc percentage of the population.
+:param sig: a numpy array
+:type sig: ndarray
+:param max_perc: Population percentage for taking max
+:type max_perc: float
+:param min_perc: Population percentage for taking max
+:type min_perc: float</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>tuple containing:</dt><dd><p>max_p(float): population max for positive signal
+min_p(float): population min for positive signal
+max_n(float): population max for negative signal
+min_n(float): population min for negative signal</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(tuple)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="audioperm.utils.noise_boundaries">
+<code class="sig-prename descclassname">audioperm.utils.</code><code class="sig-name descname">noise_boundaries</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sig</span></em>, <em class="sig-param"><span class="n">max_perc</span><span class="o">=</span><span class="default_value">0.2</span></em>, <em class="sig-param"><span class="n">min_perc</span><span class="o">=</span><span class="default_value">0.2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#audioperm.utils.noise_boundaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates maximum noise boundaries for a signal.
+:param sig: a numpy array
+:type sig: ndarray
+:param max_perc: Population percentage for taking max
+:type max_perc: float
+:param min_perc: Population percentage for taking max
+:type min_perc: float</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>tuple containing:</dt><dd><p>max_n(float): maximum boundary for noise
+min_n(float): minimum boundary for noise</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(tuple)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="audioperm.utils.save_audio">
+<code class="sig-prename descclassname">audioperm.utils.</code><code class="sig-name descname">save_audio</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sig</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">sr</span><span class="o">=</span><span class="default_value">22050</span></em><span class="sig-paren">)</span><a class="headerlink" href="#audioperm.utils.save_audio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a PCM 16 or float32 signal and saves the audio in pcm16 format.
+:param sig: a numpy array
+:type sig: ndarray
+:param filename: Filepath and filename.
+:type filename: str
+:param sr: Sampling rate.
+:type sr: int</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="audioperm.utils.type_nested">
+<code class="sig-prename descclassname">audioperm.utils.</code><code class="sig-name descname">type_nested</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iterable</span></em>, <em class="sig-param"><span class="n">tp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#audioperm.utils.type_nested" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds if array is of type tp (homogenous).
+:param iterable: a list
+:type iterable: list
+:param tp: type of iterable
+:type tp: type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>If all are of same type.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-audioperm">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-audioperm" title="Permalink to this headline">¶</a></h2>
+<p>A python library for generating different permutations of audible segments from audio files.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Zabir Al Nazi.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
