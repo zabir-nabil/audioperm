@@ -8,7 +8,7 @@
 <a href="https://pypi.org/project/audioperm/" target="_blank">
     <img src="https://img.shields.io/pypi/v/audioperm?color=%2334D058&label=pypi%20package" alt="Package version">
 </a>
-<a href="https://colab.research.google.com/drive/17rvitKHsGHstb0VEb9Je5WS3hV8B4sPK?usp=sharing">
+<a href="https://colab.research.google.com/github/zabir-nabil/audioperm/blob/main/notebooks/audioperm_demo.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 </p>
