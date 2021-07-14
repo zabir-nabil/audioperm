@@ -5,8 +5,8 @@
     <em>Audioperm, a python library for generating different permutations of audible segments from audio files.</em>
 </p>
 <p align="center">
-<a href="https://pypi.org/project/autoocr/" target="_blank">
-    <img src="https://img.shields.io/pypi/v/autoocr?color=%2334D058&label=pypi%20package" alt="Package version">
+<a href="https://pypi.org/project/audioperm/" target="_blank">
+    <img src="https://img.shields.io/pypi/v/audioperm?color=%2334D058&label=pypi%20package" alt="Package version">
 </a>
 </p>
 
