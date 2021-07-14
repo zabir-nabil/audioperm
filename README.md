@@ -27,11 +27,13 @@ A python library for generating different permutations of audible segments from 
 * Speaker recognition, Speaker verification, Audio classification, Audio fingerprinting
 
 
-**Documentation**: <a href="https://github.com/zabir-nabil/audioperm/docs" target="_blank">https://github.com/zabir-nabil/audioperm/docs</a>
+**Documentation**: <a href="https://zabir-nabil.github.io/audioperm/" target="_blank">https://zabir-nabil.github.io/audioperm/</a>
 
 **Source Code**: <a href="https://github.com/zabir-nabil/audioperm" target="_blank">https://github.com/zabir-nabil/audioperm</a>
 
 ---
+
+### Word segmentation
 
 ```pyhon
 from audioperm import AudioPerm
@@ -51,8 +53,28 @@ for i, w in enumerate(words):
 cats.wav  i_love_cats.m4a  i_love_cats.m4a.1  i.wav  love.wav
 ```
 
-<audio src="notebooks/cats.wav"></audio>
+### Word-level permutation
 
+```python
+import numpy as np
+from audioperm import AudioPerm
+from audioperm.utils import save_audio
 
+ap = AudioPerm("i_love_cats.m4a")
+ap.word_segments(return_words=False)
+perm_sentences = ap.permute(n_permutations = 5)
+
+for i, s in enumerate(perm_sentences):
+  s = np.hstack(s).astype(np.int16) # will fix later
+  save_audio(s, f"perm_{i}.wav")
+```
+
+```
+cats.wav	   i.wav       perm_1.wav    perm_4.wav
+i_love_cats.m4a    love.wav    perm_2.wav    perm_0.wav  
+perm_3.wav
+```
+
+To run the code: [Google Colab](https://colab.research.google.com/github/zabir-nabil/audioperm/blob/main/notebooks/audioperm_demo.ipynb)
 
 ---
