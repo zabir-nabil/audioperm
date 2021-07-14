@@ -50,7 +50,7 @@ for i, w in enumerate(words):
 ```
 
 ```
-cats.wav  i_love_cats.m4a  i_love_cats.m4a.1  i.wav  love.wav
+cats.wav  i_love_cats.m4a  i.wav  love.wav
 ```
 
 ### Word-level permutation
@@ -75,6 +75,5 @@ i_love_cats.m4a    love.wav    perm_2.wav    perm_0.wav
 perm_3.wav
 ```
 
-To run the code: [Google Colab](https://colab.research.google.com/github/zabir-nabil/audioperm/blob/main/notebooks/audioperm_demo.ipynb)
+* To run the code: [Google Colab >](https://colab.research.google.com/github/zabir-nabil/audioperm/blob/main/notebooks/audioperm_demo.ipynb)
 
----
