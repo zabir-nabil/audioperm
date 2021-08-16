@@ -24,7 +24,7 @@
 ### Audioperm
 A python library for generating different permutations of audible segments from audio files. 
 
-```python
+```console
 pip install audioperm
 ```
 
@@ -86,7 +86,10 @@ i_love_cats.m4a    love.wav    perm_2.wav    perm_0.wav
 perm_3.wav
 ```
 
+### Others
 
+> To run the code: [Google Colab](https://colab.research.google.com/github/zabir-nabil/audioperm/blob/main/notebooks/audioperm_demo.ipynb)
 
-* To run the code: [Google Colab](https://colab.research.google.com/github/zabir-nabil/audioperm/blob/main/notebooks/audioperm_demo.ipynb)
-
+> Any contribution is welcome. 
+  - [Contributors](https://github.com/zabir-nabil/audioperm/graphs/contributors)
+  - [Contribution guide](https://github.com/zabir-nabil/audioperm/blob/main/CONTRIBUTE.md) 
