@@ -1,4 +1,5 @@
 import itertools
+import os
 
 import numpy as np
 import librosa
@@ -237,12 +238,10 @@ def segment_aud_eq(audio_segment, k):
     a_segs = [audio_segment[i*k:min((i+1)*k, len(audio_segment)-1)] for i in range(len(audio_segment)//k)]
     return a_segs
 
-def silence_remove_segment(filename, silence_thresh=-60., segment_size = 5.0, save = False, save_path = "", ret = True):
-    # takes an wav/sph file/anything that librosa supports
-    # removes the silence with a threshold
-    # makes a list of segment of size >= segment_size (in sec.) 
-    # saves the wav file or returns a numpy array 16 bit PCM
-    y, sr = librosa.load(filename)
+def fixed_len_segments(filename, sr = 22050, silence_thresh=-60., segment_size = 5.0, permute = True, save = False, file_save_tags = {}, return_segments = True):
+    """Takes an audiofile path, loads it, removes the silence with a threshold, makes a list of segment of size = segment_size (in sec.), runs premutation, augmentation (if applied), saves the wav file or returns a numpy array (16 bit PCM)
+    """
+    y, sr = librosa.load(filename, sr = sr)
     # convert from float to uint16
     y = np.array(y * (1<<15), dtype=np.int16)
     audio_segment = pydub.AudioSegment(

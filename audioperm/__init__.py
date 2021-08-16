@@ -6,7 +6,7 @@ __author__ = "Zabir Al Nazi"
 __copyright__ = "Copyright 2021"
 __credits__ = []
 __license__ = "MIT"
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 __maintainer__ = "https://github.com/zabir-nabil"
 __status__ = "Production"
 
