@@ -6,8 +6,15 @@
 </p>
 <p align="center">
 <a href="https://pypi.org/project/audioperm/" target="_blank">
+    <img src="https://img.shields.io/pypi/pyversions/audioperm" alt="License">
+</a>
+<a href="https://pypi.org/project/audioperm/" target="_blank">
     <img src="https://img.shields.io/pypi/v/audioperm?color=%2334D058&label=pypi%20package" alt="Package version">
 </a>
+<a href="https://pypi.org/project/audioperm/" target="_blank">
+    <img src="https://img.shields.io/pypi/l/audioperm?style=flat" alt="License">
+</a>
+
 <a href="https://colab.research.google.com/github/zabir-nabil/audioperm/blob/main/notebooks/audioperm_demo.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>

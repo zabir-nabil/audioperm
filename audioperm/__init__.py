@@ -6,9 +6,9 @@ __author__ = "Zabir Al Nazi"
 __copyright__ = "Copyright 2021"
 __credits__ = []
 __license__ = "MIT"
-__version__ = "1.0.0"
+__version__ = "0.0.2"
 __maintainer__ = "https://github.com/zabir-nabil"
 __status__ = "Production"
 
-
+from .audioperm import read_audio, word_segments, permutations
 from .audioperm import AudioPerm
