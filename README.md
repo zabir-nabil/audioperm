@@ -24,6 +24,10 @@
 ### Audioperm
 A python library for generating different permutations of audible segments from audio files. 
 
+```python
+pip install audioperm
+```
+
 #### Use:
 
 * Silence Removal from Audio
