@@ -1,12 +1,13 @@
 import itertools
 import os
+import random
 
 import numpy as np
 import librosa
 import pydub
 import soundfile as sf
 
-from audioperm.utils import type_nested, noise_boundaries, type_chain
+from audioperm.utils import type_nested, noise_boundaries, type_chain, save_audio, segment_aud_eq
 
 class AudioPerm:
     """
@@ -193,7 +194,7 @@ def word_segments(audio_files, sr = 22050, silence_thresh = -60., min_silence_le
             raise TypeError("Takes an audio file (or a list of files) in numpy array format (int16, float). Type mismatch!")
 
 
-def permutations(words, sr = 22050, n_permutations = 1, interm_silence = 1000, return_as_array = False):
+def permutations(words, sr = 22050, n_permutations = 1, interm_silence = 1000, random = False, return_as_array = False):
     """Get the permutation of words.
     TODO: Use yield.
 
@@ -233,12 +234,9 @@ def permutations(words, sr = 22050, n_permutations = 1, interm_silence = 1000, r
     else:
         return audio_perms
 
-def segment_aud_eq(audio_segment, k):
-    # k denotes, seconds * 1000
-    a_segs = [audio_segment[i*k:min((i+1)*k, len(audio_segment)-1)] for i in range(len(audio_segment)//k)]
-    return a_segs
 
-def fixed_len_segments(filename, sr = 22050, silence_thresh=-60., segment_size = 5.0, permute = True, save = False, file_save_tags = {}, return_segments = True):
+
+def fixed_len_segments(filename, sr = 22050, silence_thresh=-60., min_silence_len = 20, segment_size = 5.0, permute = True, max_segments = 10, augment = None, save = False, save_path = "", file_save_tag = "", return_segments = True):
     """Takes an audiofile path, loads it, removes the silence with a threshold, makes a list of segment of size = segment_size (in sec.), runs premutation, augmentation (if applied), saves the wav file or returns a numpy array (16 bit PCM)
     """
     y, sr = librosa.load(filename, sr = sr)
@@ -250,16 +248,29 @@ def fixed_len_segments(filename, sr = 22050, silence_thresh=-60., segment_size =
         sample_width=y.dtype.itemsize, 
         channels=1
     )
-    aud_segs = pydub.silence.split_on_silence(audio_segment, silence_thresh=silence_thresh)
-    # join all
-    all_seg = sum(aud_segs)
-    eq_segs = segment_aud_eq(all_seg, int(segment_size * 1000)) # 1000 because, in AudioSegment 1s is 1000 points
-
+    aud_segs = pydub.silence.split_on_silence(audio_segment, silence_thresh=silence_thresh, min_silence_len = min_silence_len)
+    # calculate n_permutations
+    eq_segs_all = []
+    for ind, idxs in enumerate(itertools.permutations(range(len(aud_segs)))):
+        r_idxs = list(idxs)
+        if ind != 0:
+            # random shuffle
+            random.shuffle(r_idxs)
+        all_seg = sum([aud_segs[i] for i in r_idxs])
+        eq_segs = segment_aud_eq(all_seg, int(segment_size * 1000))
+        n = max_segments - len(eq_segs_all)
+        eq_segs_all.extend(eq_segs[:n])
+        if n < len(eq_segs):
+            break
+    # convert to numpy
+    eq_segs_all = [np.array(s.get_array_of_samples(), dtype = np.int16) for s in eq_segs_all]
     if save:
         # save as wav
         bn = os.path.basename(filename)
-        for i, s in enumerate(eq_segs):
-            s.export(f"{os.path.join(save_path, bn.split('.')[0])}_{i}.wav", format="wav")
+        os.makedirs(save_path, exist_ok=True) 
+        for i, s in enumerate(eq_segs_all):
+            f_p = f"{os.path.join(save_path, bn.split('.')[0])}_{file_save_tag}{i}.wav"
+            save_audio(s, f_p, sr = sr)
 
-    if ret:
-        return [np.array(s.get_array_of_samples(), dtype = np.int16) for s in eq_segs]
+    if return_segments:
+        return eq_segs_all

@@ -10,5 +10,5 @@ __version__ = "0.0.3"
 __maintainer__ = "https://github.com/zabir-nabil"
 __status__ = "Production"
 
-from .audioperm import read_audio, word_segments, permutations
+from .audioperm import read_audio, word_segments, permutations, fixed_len_segments
 from .audioperm import AudioPerm

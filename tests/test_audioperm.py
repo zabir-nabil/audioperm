@@ -1,4 +1,5 @@
 import pytest
+import os
 
 import numpy as np
 from audioperm import AudioPerm
@@ -177,3 +178,13 @@ def test_permute_f():
     assert len(perms) == 2 # 2 audio files
     assert len(perms[0]) == 1 # 1 max perm possible
     assert len(perms[1]) == 5 # 5 perms
+
+def test_fixed_len_segments():
+    from audioperm import fixed_len_segments
+    out = fixed_len_segments("tests/bangla_demo.wav", return_segments = False, save_path = "tests/fls_out", save = True, segment_size = 0.5)
+    assert os.path.isfile("tests/fls_out/bangla_demo_0.wav") == True
+    assert out == None
+    
+    out = fixed_len_segments("tests/bangla_demo.wav", return_segments = True, save = False, segment_size = 0.5)
+    assert len(out) == 10
+    assert(type(out[0])) == np.ndarray

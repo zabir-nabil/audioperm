@@ -8,10 +8,10 @@
 ### merge
  * send a merge request with a summary of changes
 ### versioning [CAUTION :volcano:]
- * bump the version number in `audioperm/__init__.py` in accordance with the semantic versioning specification
+ * bump the version number in `audioperm/__init__.py` and `setup.py` in accordance with the semantic versioning specification
 ### wheel [CAUTION :bomb:]
  * `python3 setup.py sdist bdist_wheel`
- * `python3 -m twine upload dist/*`
+ * `python3 -m twine upload --skip-existing dist/*`
  * commit and push the change with a commit message like this: "Release vx.y.z" (replace x.y.z with the package version)
  * add and push a git tag to the release commit
 

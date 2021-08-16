@@ -16,6 +16,25 @@ def type_nested(iterable, tp):
         return False
     return all(isinstance(item, tp) for item in iterable)
 
+def type_chain(iterable, type_iterable):
+    """ Compares the type chain of an iterable, checks with only the first element
+    Args:
+        iterable (list): a list
+        type_iterable (list): type chain
+    Returns:
+        bool: If the type chain is true for the iterable.
+    """
+    for c_type in type_iterable:
+        if type(iterable) != c_type:
+            return False
+        try:
+            iterable = iterable[0]
+        except:
+            pass
+    return True
+
+    
+
 def max_min_heuristics(sig, max_perc = 0.2, min_perc = 0.2):
     """ Calculates the avg max and avg min considering a percentage of sorted amplitudes.
     For audio signals finding a single peak or valley is not enough. So, we take the average of top perc percentage of the population.
@@ -105,6 +124,11 @@ def save_audio(sig, filename, sr = 22050):
             raise TypeError("Expected a numpy array.")
     except Exception as e:
         raise Exception(e)
+
+def segment_aud_eq(audio_segment, k):
+    # k denotes, seconds * 1000
+    a_segs = [audio_segment[i*k:min((i+1)*k, len(audio_segment)-1)] for i in range(len(audio_segment)//k)]
+    return a_segs
 
 
 

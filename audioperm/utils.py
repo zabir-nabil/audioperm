@@ -24,10 +24,7 @@ def type_chain(iterable, type_iterable):
     Returns:
         bool: If the type chain is true for the iterable.
     """
-    print(iterable)
-    print(type_iterable)
     for c_type in type_iterable:
-        print(c_type)
         if type(iterable) != c_type:
             return False
         try:
@@ -127,6 +124,11 @@ def save_audio(sig, filename, sr = 22050):
             raise TypeError("Expected a numpy array.")
     except Exception as e:
         raise Exception(e)
+
+def segment_aud_eq(audio_segment, k):
+    # k denotes, seconds * 1000
+    a_segs = [audio_segment[i*k:min((i+1)*k, len(audio_segment)-1)] for i in range(len(audio_segment)//k)]
+    return a_segs
 
 
 

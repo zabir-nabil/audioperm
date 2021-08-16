@@ -2,6 +2,7 @@ README.md
 setup.py
 audioperm/__init__.py
 audioperm/audioperm.py
+audioperm/augmentation.py
 audioperm/utils.py
 audioperm.egg-info/PKG-INFO
 audioperm.egg-info/SOURCES.txt
