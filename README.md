@@ -76,7 +76,6 @@ ap.word_segments(return_words=False)
 perm_sentences = ap.permute(n_permutations = 5)
 
 for i, s in enumerate(perm_sentences):
-  s = np.hstack(s).astype(np.int16) # will fix later
   save_audio(s, f"perm_{i}.wav")
 ```
 
@@ -84,6 +83,24 @@ for i, s in enumerate(perm_sentences):
 cats.wav	   i.wav       perm_1.wav    perm_4.wav
 i_love_cats.m4a    love.wav    perm_2.wav    perm_0.wav  
 perm_3.wav
+```
+
+### `permutations` on multiple files
+
+```python
+from audioperm import read_audio, word_segments, permutations
+
+ap = read_audio(["bangla_demo.wav", "i_love_cats.m4a"])
+out = word_segments(ap)
+perms = permutations(out, n_permutations = 5)
+```
+
+#### Generate fixed length audible segments (with permutation/augmentation)
+
+```python
+from audioperm import fixed_len_segments
+fixed_len_segments("bangla_demo.wav", return_segments = False, save_path = "fls_out", save = True, segment_size = 0.5)
+out = fixed_len_segments("bangla_demo.wav", return_segments = True, max_segments = 5, save = False, segment_size = 0.5)
 ```
 
 ### Others
