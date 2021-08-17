@@ -44,7 +44,7 @@ pip install audioperm
 
 ---
 
-### Word segmentation
+#### Word segmentation
 
 ```python
 from audioperm import AudioPerm
@@ -64,7 +64,7 @@ for i, w in enumerate(words):
 cats.wav  i_love_cats.m4a  i.wav  love.wav
 ```
 
-### Word-level permutation
+#### Word-level permutation
 
 ```python
 import numpy as np
@@ -85,7 +85,7 @@ i_love_cats.m4a    love.wav    perm_2.wav    perm_0.wav
 perm_3.wav
 ```
 
-### `permutations` on multiple files
+#### `permutations` on multiple files
 
 ```python
 from audioperm import read_audio, word_segments, permutations
@@ -95,12 +95,14 @@ out = word_segments(ap)
 perms = permutations(out, n_permutations = 5)
 ```
 
-#### Generate fixed length audible segments (with permutation/augmentation)
+#### Fixed-length segments
+
+* Generate fixed length audible segments (with permutation/augmentation)
 
 ```python
 from audioperm import fixed_len_segments
 fixed_len_segments("bangla_demo.wav", return_segments = False, save_path = "fls_out", save = True, segment_size = 0.5)
-out = fixed_len_segments("bangla_demo.wav", return_segments = True, max_segments = 5, save = False, segment_size = 0.5)
+out = fixed_len_segments("bangla_demo.wav", return_segments = True, max_segments = 5, permute = True, save = False, segment_size = 0.5)
 ```
 
 ### Others
