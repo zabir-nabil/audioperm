@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="audioperm",
-    version="0.0.3",
+    version="0.0.5",
     description="Audioperm, a python library for generating different permutations of audible segments from audio files.",
     long_description=README,
     long_description_content_type="text/markdown",

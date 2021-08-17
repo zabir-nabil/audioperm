@@ -114,13 +114,13 @@ out = fixed_len_segments("bangla_demo.wav", return_segments = True, max_segments
   - [Contribution guide](https://github.com/zabir-nabil/audioperm/blob/main/CONTRIBUTE.md) 
 
 > Tested with: 
-  - `python3.5`
+  - `python3.7`
   - `python3.8`
 
 > Internal audio representation:
- - **PCM 16**
- - **float 32**
- 
+ - `PCM 16`
+ - `float32`
+
 > TO-DO:
  - [ ] multi-channel audio
  - [ ] augmentation

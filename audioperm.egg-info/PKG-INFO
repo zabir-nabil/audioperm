@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: audioperm
-Version: 0.0.3
+Version: 0.0.5
 Summary: Audioperm, a python library for generating different permutations of audible segments from audio files.
 Home-page: https://github.com/zabir-nabil/audioperm
 Author: Zabir Al Nazi
@@ -13,17 +13,17 @@ Description: <p align="center">
             <em>Audioperm, a python library for generating different permutations of audible segments from audio files.</em>
         </p>
         <p align="center">
-        <a href="https://pypi.org/project/audioperm/" target="_blank">
+        <a href="https://pypi.org/project/audioperm/" style="text-decoration: none;" target="_blank">
             <img src="https://img.shields.io/pypi/pyversions/audioperm" alt="License">
         </a>
-        <a href="https://pypi.org/project/audioperm/" target="_blank">
+        <a href="https://pypi.org/project/audioperm/" style="text-decoration: none;" target="_blank">
             <img src="https://img.shields.io/pypi/v/audioperm?color=%2334D058&label=pypi%20package" alt="Package version">
         </a>
-        <a href="https://pypi.org/project/audioperm/" target="_blank">
+        <a href="https://pypi.org/project/audioperm/" style="text-decoration: none;" target="_blank">
             <img src="https://img.shields.io/pypi/l/audioperm?style=flat" alt="License">
         </a>
         
-        <a href="https://colab.research.google.com/github/zabir-nabil/audioperm/blob/main/notebooks/audioperm_demo.ipynb">
+        <a href="https://colab.research.google.com/github/zabir-nabil/audioperm/blob/main/notebooks/audioperm_demo.ipynb" style="text-decoration: none;">
           <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
         </a>
         </p>
@@ -52,7 +52,7 @@ Description: <p align="center">
         
         ---
         
-        ### Word segmentation
+        #### Word segmentation
         
         ```python
         from audioperm import AudioPerm
@@ -72,7 +72,7 @@ Description: <p align="center">
         cats.wav  i_love_cats.m4a  i.wav  love.wav
         ```
         
-        ### Word-level permutation
+        #### Word-level permutation
         
         ```python
         import numpy as np
@@ -84,7 +84,6 @@ Description: <p align="center">
         perm_sentences = ap.permute(n_permutations = 5)
         
         for i, s in enumerate(perm_sentences):
-          s = np.hstack(s).astype(np.int16) # will fix later
           save_audio(s, f"perm_{i}.wav")
         ```
         
@@ -94,6 +93,26 @@ Description: <p align="center">
         perm_3.wav
         ```
         
+        #### `permutations` on multiple files
+        
+        ```python
+        from audioperm import read_audio, word_segments, permutations
+        
+        ap = read_audio(["bangla_demo.wav", "i_love_cats.m4a"])
+        out = word_segments(ap)
+        perms = permutations(out, n_permutations = 5)
+        ```
+        
+        #### Fixed-length segments
+        
+        * Generate fixed length audible segments (with permutation/augmentation)
+        
+        ```python
+        from audioperm import fixed_len_segments
+        fixed_len_segments("bangla_demo.wav", return_segments = False, save_path = "fls_out", save = True, segment_size = 0.5)
+        out = fixed_len_segments("bangla_demo.wav", return_segments = True, max_segments = 5, permute = True, save = False, segment_size = 0.5)
+        ```
+        
         ### Others
         
         > To run the code: [Google Colab](https://colab.research.google.com/github/zabir-nabil/audioperm/blob/main/notebooks/audioperm_demo.ipynb)
@@ -101,6 +120,20 @@ Description: <p align="center">
         > Any contribution is welcome. 
           - [Contributors](https://github.com/zabir-nabil/audioperm/graphs/contributors)
           - [Contribution guide](https://github.com/zabir-nabil/audioperm/blob/main/CONTRIBUTE.md) 
+        
+        > Tested with: 
+          - `python3.7`
+          - `python3.8`
+        
+        > Internal audio representation:
+         - `PCM 16`
+         - `float32`
+        
+        > TO-DO:
+         - [ ] multi-channel audio
+         - [ ] augmentation
+         - [ ] multi-processing
+         - [ ] gpu-support
 Platform: UNKNOWN
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python :: 3
