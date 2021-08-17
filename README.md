@@ -105,6 +105,18 @@ fixed_len_segments("bangla_demo.wav", return_segments = False, save_path = "fls_
 out = fixed_len_segments("bangla_demo.wav", return_segments = True, max_segments = 5, permute = True, save = False, segment_size = 0.5)
 ```
 
+### Support
+
+> Tested with: `python3.6` `python3.7` `python3.8`
+
+> Internal audio representation: `PCM 16` `float32`
+
+> TO-DO:
+ - [ ] multi-channel audio
+ - [ ] augmentation
+ - [ ] multi-processing
+ - [ ] gpu-support
+
 ### Others
 
 > To run the code: [Google Colab](https://colab.research.google.com/github/zabir-nabil/audioperm/blob/main/notebooks/audioperm_demo.ipynb)
@@ -113,16 +125,3 @@ out = fixed_len_segments("bangla_demo.wav", return_segments = True, max_segments
   - [Contributors](https://github.com/zabir-nabil/audioperm/graphs/contributors)
   - [Contribution guide](https://github.com/zabir-nabil/audioperm/blob/main/CONTRIBUTE.md) 
 
-> Tested with: 
-  - `python3.7`
-  - `python3.8`
-
-> Internal audio representation:
- - `PCM 16`
- - `float32`
-
-> TO-DO:
- - [ ] multi-channel audio
- - [ ] augmentation
- - [ ] multi-processing
- - [ ] gpu-support
