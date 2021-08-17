@@ -5,17 +5,17 @@
     <em>Audioperm, a python library for generating different permutations of audible segments from audio files.</em>
 </p>
 <p align="center">
-<a href="https://pypi.org/project/audioperm/" target="_blank">
+<a href="https://pypi.org/project/audioperm/" style="text-decoration: none;" target="_blank">
     <img src="https://img.shields.io/pypi/pyversions/audioperm" alt="License">
 </a>
-<a href="https://pypi.org/project/audioperm/" target="_blank">
+<a href="https://pypi.org/project/audioperm/" style="text-decoration: none;" target="_blank">
     <img src="https://img.shields.io/pypi/v/audioperm?color=%2334D058&label=pypi%20package" alt="Package version">
 </a>
-<a href="https://pypi.org/project/audioperm/" target="_blank">
+<a href="https://pypi.org/project/audioperm/" style="text-decoration: none;" target="_blank">
     <img src="https://img.shields.io/pypi/l/audioperm?style=flat" alt="License">
 </a>
 
-<a href="https://colab.research.google.com/github/zabir-nabil/audioperm/blob/main/notebooks/audioperm_demo.ipynb">
+<a href="https://colab.research.google.com/github/zabir-nabil/audioperm/blob/main/notebooks/audioperm_demo.ipynb" style="text-decoration: none;">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 </p>
